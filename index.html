@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Image Gallery</title>
+    <style>
+        .galery {
+            width: 100vh;
+            max-width: 1250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            padding: 5rem 0;
+        }
+        .galery-title {
+            width: 100%;
+            text-align: center;
+        }
+        .galery-title > h1 {
+            font-size: 3rem;
+            color: black;
+            font-weight: 700;
+        }
+        .galery-img {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .5rem;
+        }
+
+        .galery-img img {
+            width: 300px;
+            height: 450px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section class="galery">
+            <div class="galery-title">
+                <h1>My Flowers</h1>
+            </div>
+            <div class="galery-img" id="galery-img">
+                <!-- Imagens serão carregadas aqui -->
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const imageFolder = 'img/';
+        const images = [
+            'flower_01.jpg', 'flower_02.jpg', 'flower_03.jpg', 'flower_04.jpg', 'flower_05.jpg',
+            'flower_06.jpg', 'flower_07.jpg', 'flower_08.jpg', 'flower_09.jpg', 'flower_10.jpg'
+        ];
+
+        const galleryDiv = document.getElementById('galery-img');
+
+        images.forEach(image => {
+            const imgElement = document.createElement('img');
+            imgElement.src = `${imageFolder}${image}`;
+            imgElement.alt = image;
+            galleryDiv.appendChild(imgElement);
+        });
+    </script>
+</body>
+</html>
